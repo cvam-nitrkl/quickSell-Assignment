@@ -1,0 +1,34 @@
+.profile_img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .available_circle {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0px;
+    right: 1px;
+    outline: 2px solid var(--white);
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: green;
+  }
+
+  .no_available_circle {
+    overflow: hidden;
+    position: absolute;
+    bottom: 1px;
+    right: 3px;
+    outline: 2px solid var(--white);
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: var(--dark-gray);
+  }
+  
+  .profile_img > img {
+    border-radius: 50%;
+    width: 100%;
+  }

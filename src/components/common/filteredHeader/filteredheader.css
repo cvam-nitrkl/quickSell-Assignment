@@ -1,0 +1,28 @@
+.filteredHeader {
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 20px;
+    margin-bottom: 25px;
+    padding: 0 5px;
+}
+
+.filtered_left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filtered_left > .filtered_count {
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.filtered_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}

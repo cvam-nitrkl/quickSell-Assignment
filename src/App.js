@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "../src/components/Home/home.css";
+import Home from "./components/Home/Home";
+import Header from "./components/common/header/Header";
 
-function App() {
+const App = () => {
+  const [ticketsData, setTicketsData] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [displayInput, setDisplayInput] = useState({
+    status: "status",
+    priority: "priority"
+  });
+
+  useEffect(() => {
+    async function getApiUrl() {
+      const res = await fetch(
+        "https://api.quicksell.co/v1/internal/frontend-assignment"
+      );
+      const data = await res.json();
+      setTicketsData(data.tickets);
+      setUserData(data.users);
+    }
+    getApiUrl();
+  }, []);
+
+  const getData = (data) => {
+    setDisplayInput(data);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header
+        ticketData={ticketsData}
+        handleSubmit={getData}
+        userData={userData}
+      />
+      <Home
+        ticketData={ticketsData}
+        receiveData={displayInput}
+        userData={userData}
+      />
     </div>
   );
-}
+};
 
 export default App;
